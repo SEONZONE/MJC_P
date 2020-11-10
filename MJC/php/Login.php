@@ -1,4 +1,4 @@
-<? php
+<?php
 	$con = mysqli_connect("localhost","seonzone","toto2409!","seonzone");
 	mysqli_query($con,'SET NAMES utf8');
 
@@ -10,20 +10,19 @@
 	mysqli_stmt_execute($statement);
 
 	mysqli_stmt_store_result($statement);
-	myslqi_stmt_bind_result($statement, $userID, $userPassword, $userName, $userAddress);
+	mysqli_stmt_bind_result($statement, $userID, $userPassword, $userName, $userAddress);
 
 	$response = array();
-	$response["success"] = false;
+	$response["success"] = true;
 
 	while(mysqli_stmt_fetch($statement)) {
 		$response["success"] = true;
-		$response["userID"] = userID;
-		$response["userPassword"] = userPassword;
-		$response["userName"] = userName;
-		$response["userAddress"] = userAddress;
+		$response["userID"] = $userID;
+		$response["userPassword"] = $userPassword;
+		$response["userName"] = $userName;
+		$response["userAddress"] = $userAddress;
 	}
 	
 	echo json_encode($response);
-
-	?>
+?>
 

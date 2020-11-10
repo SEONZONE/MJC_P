@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
                 // EditText 에 현재 입력되어있는 값을 get(가져온다).
                 String userID = Login_ID.getText().toString();
                 String userPassword = Login_Password.getText().toString();
-
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

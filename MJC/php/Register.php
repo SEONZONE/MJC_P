@@ -1,4 +1,4 @@
-<? php
+<?php
 	$con = mysqli_connect("localhost","seonzone","toto2409!","seonzone");
 	mysqli_query($con,'SET NAMES utf8');
 
@@ -17,5 +17,5 @@
 	
 	echo json_encode($response);
 
-	?>
+?>
 

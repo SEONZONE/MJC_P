@@ -31,14 +31,16 @@ public class RegisterActivity extends AppCompatActivity {
         reg_Address = findViewById(R.id.reg_Address);
         reg_Password = findViewById(R.id.reg_Password);
         reg_Name = findViewById(R.id.reg_Name);
-        btn_reg = findViewById(R.id.btn_reg);
+
 
         
         // 회원가입 버튼 클릭시 수행
+        btn_reg = findViewById(R.id.btn_reg);
        btn_reg.setOnClickListener(new View.OnClickListener() {
+
+
            @Override
            public void onClick(View view) {
-
                // EditText 에 현재 입력되어있는 값을 get(가져온다).
                String userID = reg_ID.getText().toString();
                String userPassword = reg_Password.getText().toString();
