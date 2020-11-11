@@ -77,7 +77,6 @@
         android:hint="주소(시,구,동)"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/btn_reg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="100dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
