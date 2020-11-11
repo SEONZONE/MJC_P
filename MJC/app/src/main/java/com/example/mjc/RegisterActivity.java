@@ -33,50 +33,50 @@ public class RegisterActivity extends AppCompatActivity {
         reg_Name = findViewById(R.id.reg_Name);
 
 
-        
+
         // 회원가입 버튼 클릭시 수행
         btn_reg = findViewById(R.id.btn_reg);
-       btn_reg.setOnClickListener(new View.OnClickListener() {
+        btn_reg.setOnClickListener(new View.OnClickListener() {
 
 
-           @Override
-           public void onClick(View view) {
-               // EditText 에 현재 입력되어있는 값을 get(가져온다).
-               String userID = reg_ID.getText().toString();
-               String userPassword = reg_Password.getText().toString();
-               String userName = reg_Name.getText().toString();
-               String userAddress = reg_Address.getText().toString();
+            @Override
+            public void onClick(View view) {
+                // EditText 에 현재 입력되어있는 값을 get(가져온다).
+                String userID = reg_ID.getText().toString();
+                String userPassword = reg_Password.getText().toString();
+                String userName = reg_Name.getText().toString();
+                String userAddress = reg_Address.getText().toString();
 
 
-               Response.Listener<String> responseListener = new Response.Listener<String>() {
-                   @Override
-                   public void onResponse(String response) {
-                       try {
-                           JSONObject jsonObject = new JSONObject(response);
-                           boolean success = jsonObject.getBoolean("success");
-                           if(success) { //회원가입에 성공한 경우
-                               Toast.makeText(getApplicationContext(),"회원가입에 성공했습니다.",Toast.LENGTH_SHORT).show();
-                               Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                               startActivity(intent);
-                           }
-                           else{
-                               Toast.makeText(getApplicationContext(),"회원가입에 실패했습니다.",Toast.LENGTH_SHORT).show();
-                               return;
-                           }
-                       } catch (JSONException e) {
-                           e.printStackTrace();
-                       }
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if(success) { //회원가입에 성공한 경우
+                                Toast.makeText(getApplicationContext(),"회원가입에 성공했습니다.",Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(),"회원가입에 실패했습니다.",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
 
-                   }
-               };
+                    }
+                };
                 // 서버로 Volley를 이용해서 요청을 한다.
-               RegisterRequest registerRequest = new RegisterRequest(userID,userPassword,userName,userAddress,responseListener);
-               RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-               queue.add(registerRequest);
+                RegisterRequest registerRequest = new RegisterRequest(userID,userPassword,userName,userAddress,responseListener);
+                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                queue.add(registerRequest);
 
 
-           }
-       });
+            }
+        });
     }
 }
