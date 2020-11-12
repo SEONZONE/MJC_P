@@ -23,7 +23,7 @@ public class SubActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sub);
 
         viewPager = findViewById(R.id.viewpager);
         ViewpagerAdapter adapter = new ViewpagerAdapter(getSupportFragmentManager());
